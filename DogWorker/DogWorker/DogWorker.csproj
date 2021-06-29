@@ -219,11 +219,11 @@
     <Compile Include="View\Record\RecordMain.xaml.cs">
       <DependentUpon>RecordMain.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\DogWorkerInf\DWIMain.xaml.cs">
-      <DependentUpon>DWIMain.xaml</DependentUpon>
+    <Compile Include="View\UserInf\InfMain.xaml.cs">
+      <DependentUpon>InfMain.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\DogInf\DogInfMain.xaml.cs">
-      <DependentUpon>DogInfMain.xaml</DependentUpon>
+    <Compile Include="View\Reserve\ResvMain.xaml.cs">
+      <DependentUpon>ResvMain.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -250,11 +250,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\DogWorkerInf\DWIMain.xaml">
+    <Page Include="View\UserInf\InfMain.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\DogInf\DogInfMain.xaml">
+    <Page Include="View\Reserve\ResvMain.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

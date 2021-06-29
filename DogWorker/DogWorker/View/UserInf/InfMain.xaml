@@ -1,14 +1,14 @@
 ﻿<Page 
-    x:Class="DogWorker.View.DogWorkerInf.DWIMain"
+    x:Class="DogWorker.View.UserInf.InfMain"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-    xmlns:local="clr-namespace:DogWorker.View.DogWorkerInf"
+    xmlns:local="clr-namespace:DogWorker.View.UserInf"
     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
     mc:Ignorable="d" 
     d:DesignHeight="630" d:DesignWidth="1200"
-    Title="DWIMain" Loaded="Page_Loaded">
+    Title="InfMain" Loaded="Page_Loaded">
     <Page.Resources>
         <Style TargetType="Label">
             <!-- {x:Type Label} -->
