@@ -1,5 +1,5 @@
 ﻿<Page 
-    x:Class="DogWorker.View.Apply.CSApplyMain"
+    x:Class="DogWorker.View.Apply.UserApplyMain"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -8,7 +8,7 @@
     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
     mc:Ignorable="d" 
     d:DesignHeight="630" d:DesignWidth="1200"
-    Title="CSApplyMain" Loaded="Page_Loaded">
+    Title="UserApplyMain" Loaded="Page_Loaded">
     <Page.Resources>
         <Style TargetType="Label">
             <!-- {x:Type Label} -->
@@ -41,7 +41,7 @@
         <!-- 제목입력 시작 -->
         <Label Grid.Row="0" Grid.Column="1" Content="산책 신청" FontSize="40" FontWeight="ExtraBold"
                VerticalContentAlignment="Center" HorizontalContentAlignment="Left" />
-        <Label Grid.Row="0" Grid.Column="2" Content="예약목록" FontSize="40" FontWeight="ExtraBold"
+        <Label Grid.Row="0" Grid.Column="2" Content="코스 선택" FontSize="40" FontWeight="ExtraBold"
                VerticalContentAlignment="Center" HorizontalContentAlignment="Left" />
         <!-- 제목입력 끝 -->
 
@@ -54,55 +54,34 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <!--이부분은 고민좀 해봐야될듯 예약한 날짜를 나오게 하려고 하는데 ListViewItem인지 GridViewItem인지 잘 모르겠음.-->
+            <!--정적지도(코스별) 시작-->
             <ListView Grid.Row="0" Grid.Column="0">
-
-
             </ListView>
+            <!--정적지도(코스별) 끝-->
+
             <Grid Grid.Row="1" Grid.Column="2" Margin="5">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
 
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="25.146"/>
-                    <ColumnDefinition Width="84.854"/>
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Row="0" Grid.Column="0" Content="이름" FontSize="25" Grid.ColumnSpan="2"/>
-                <Label Grid.Row="1" Grid.Column="0" Content="성별" FontSize="25" Grid.ColumnSpan="2"/>
-                <Label Grid.Row="2" Grid.Column="0" Content="나이" FontSize="25" Grid.ColumnSpan="2"/>
-                <Label Grid.Row="3" Grid.Column="0" Content="연락처" FontSize="25" Grid.ColumnSpan="2"/>
-                <Label Grid.Row="4" Grid.Column="0" Content="소개말" FontSize="25" Grid.ColumnSpan="2"/>
                 <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
-                    <TextBox x:Name="TxtName" Margin="3" Width="300" Text="" FontSize="14" MaxLength="8"/>
-                    <TextBlock x:Name="LblName" Text="Error Message" Foreground="OrangeRed"/>
+                    <RadioButton x:Name="BtnAcourse" Width="300" Content=" A코스" FontSize="30" />
                 </StackPanel>
                 <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
-                    <TextBox x:Name="TxtGender" Margin="3" Width="300" Text="" FontSize="14" MaxLength="100"/>
-                    <TextBlock x:Name="LblGender" Text="Error Message" Foreground="OrangeRed"/>
+                    <RadioButton x:Name="BtnBcourse" Width="300" Content=" B코스" FontSize="30" />
                 </StackPanel>
                 <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
-                    <TextBox x:Name="TxtAge" Margin="3" Width="300" Text="" FontSize="14" 
-                         AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
-                    <TextBlock x:Name="LblAge" Text="Error Message" Foreground="OrangeRed"/>
+                    <RadioButton x:Name="BtnCcourse" Width="300" Content=" C코스" FontSize="30" />
                 </StackPanel>
-                <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal">
-                    <TextBox x:Name="TxtContact" Margin="3" Width="300" Text="" FontSize="14" 
-                         AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
-                    <TextBlock x:Name="LblContact" Text="Error Message" Foreground="OrangeRed"/>
-                </StackPanel>
-                <StackPanel Grid.Row="4" Grid.Column="2" Orientation="Horizontal">
-                    <TextBox x:Name="TxtIntro" Margin="3" Width="300" Text="" FontSize="14" 
-                         AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
-                    <TextBlock x:Name="LblIntro" Text="Error Message" Foreground="OrangeRed"/>
-                </StackPanel>
+                
+                
             </Grid>
 
         </Grid>

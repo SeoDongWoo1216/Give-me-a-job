@@ -17,9 +17,9 @@ using System.Windows.Input;
 namespace DogWorker.View.Apply
 {
     
-    public partial class CSApplyMain : Page
+    public partial class DWApplyMain : Page
     {
-        public CSApplyMain()
+        public DWApplyMain()
         {
             InitializeComponent();
         }

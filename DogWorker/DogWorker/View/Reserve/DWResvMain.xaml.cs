@@ -13,14 +13,14 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
-namespace DogWorker.View.Record
+namespace DogWorker.View.Reserve
 {
     /// <summary>
     /// MyAccount.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class RecordMain : Page
+    public partial class DWResvMain : Page
     {
-        public RecordMain()
+        public DWResvMain()
         {
             InitializeComponent();
         }
@@ -106,6 +106,24 @@ namespace DogWorker.View.Record
         //    //    Commons.LOGGER.Error($"예외발생 BtnEditStore_Click : {ex}");
         //    //    throw ex;
         //    //}
+        //}
+
+        
+
+        //private void btnLoadFromFile_Click(object sender, RoutedEventArgs e)
+        //{
+        //    OpenFileDialog openFileDialog = new OpenFileDialog();
+        //    if (openFileDialog.ShowDialog() == true)
+        //    {
+        //        Uri fileUri = new Uri(openFileDialog.FileName);
+        //        imgDynamic.Source = new BitmapImage(fileUri);
+        //    }
+        //}
+
+        //private void btnLoadFromResource_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Uri resourceUri = new Uri("/Images/white_bengal_tiger.jpg", UriKind.Relative);
+        //    imgDynamic.Source = new BitmapImage(resourceUri);
         //}
 
         private void BtnAddDog_Click(object sender, RoutedEventArgs e)

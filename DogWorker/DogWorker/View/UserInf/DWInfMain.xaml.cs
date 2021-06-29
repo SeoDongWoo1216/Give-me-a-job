@@ -19,25 +19,25 @@ namespace DogWorker.View.UserInf
     /// <summary>
     /// MyAccount.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class InfMain : Page
+    public partial class DWInfMain : Page
     {
-        public InfMain()
+        public DWInfMain()
         {
             InitializeComponent();
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            //try
-            //{
-            //    LoadGridData();
+            try
+            {
+                LoadGridData();
 
-            //    InitErrorMessages();
-            //}
-            //catch (Exception ex)
-            //{
-            //    Commons.LOGGER.Error($"예외발생 StoreList Loaded : {ex}");
-            //    throw ex;
-            //}
+                InitErrorMessages();
+            }
+            catch (Exception ex)
+            {
+                Commons.LOGGER.Error($"예외발생 StoreList Loaded : {ex}");
+                throw ex;
+            }
         }
         private void InitErrorMessages()
         {
@@ -51,11 +51,11 @@ namespace DogWorker.View.UserInf
         }
         private void BtnNew_Click(object sender, RoutedEventArgs e)
         {
-            //ClearInputs();
+            ClearInputs();
         }
         private async void BtnInsert_Click(object sender, RoutedEventArgs e)
         {
-            //if (IsValidInputs() != true) return;
+            if (IsValidInputs() != true) return;
 
            // var setting = new Model.Settings();
             //setting.BasicCode = TxtBasicCode.Text;
@@ -88,7 +88,7 @@ namespace DogWorker.View.UserInf
         private bool IsValidInputs()
         {
             var isValid = true;
-            //InitErrorMessages();
+            InitErrorMessages();
 
             //if(string.IsNullOrEmpty(TxtBasicCode.Text))
             //{
@@ -164,21 +164,21 @@ namespace DogWorker.View.UserInf
 
         private void GrdData_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
-            //try
-            //{
-            //    //var setting = GrdData.SelectedItem as Model.Settings;
-            //    //TxtBasicCode.Text = setting.BasicCode;
-            //    //TxtCodeDesc.Text = setting.CodeDesc;
-            //    //TxtCodeName.Text = setting.CodeName;
+            try
+            {
+                //var setting = GrdData.SelectedItem as Model.Settings;
+                //TxtBasicCode.Text = setting.BasicCode;
+                //TxtCodeDesc.Text = setting.CodeDesc;
+                //TxtCodeName.Text = setting.CodeName;
 
-            //    //TxtBasicCode.IsReadOnly = true;
-            //    //TxtBasicCode.Background = new SolidColorBrush(Colors.LightGray);
-            //}
-            //catch (Exception ex)
-            //{
-            //    Commons.LOGGER.Error($"예외 발생 : {ex}");
-            //    ClearInputs();
-            //}
+                //TxtBasicCode.IsReadOnly = true;
+                //TxtBasicCode.Background = new SolidColorBrush(Colors.LightGray);
+            }
+            catch (Exception ex)
+            {
+                Commons.LOGGER.Error($"예외 발생 : {ex}");
+                ClearInputs();
+            }
         }
 
         private async void BtnDelete_Click(object sender, RoutedEventArgs e)
@@ -216,10 +216,10 @@ namespace DogWorker.View.UserInf
             //}
         }
 
-        //private void TxtSearch_KeyDown(object sender, KeyEventArgs e)
-        //{
-        //    if (e.Key == Key.Enter)
-        //        BtnSearch_Click(sender, e);
-        //}
+        private void TxtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                BtnSearch_Click(sender, e);
+        }
     }
 }

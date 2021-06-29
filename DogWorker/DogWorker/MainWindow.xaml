@@ -30,7 +30,7 @@
             </Grid.ColumnDefinitions>
             <Button x:Name="BtnApply" 
                     Grid.Column="0" 
-                    Content="산책 신청" FontSize="16" 
+                    Content="신청" FontSize="16" 
                     Foreground="White" Background="Red"
                     Margin="5, 10" Click="BtnApply_Click">
                 <Button.ContentTemplate>
@@ -51,7 +51,7 @@
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding}" Margin="10, 0" VerticalAlignment="Center" />
-                            <iconPacks:PackIconMaterial Kind="Dog" Width="24" Height="24" />
+                            <iconPacks:PackIconMaterial Kind="Book" Width="24" Height="24" />
                         </StackPanel>
                     </DataTemplate>
                 </Button.ContentTemplate>

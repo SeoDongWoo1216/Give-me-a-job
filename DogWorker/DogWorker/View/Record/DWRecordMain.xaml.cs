@@ -18,9 +18,9 @@ namespace DogWorker.View.Record
     /// <summary>
     /// MyAccount.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class RecordMain : Page
+    public partial class DWRecordMain : Page
     {
-        public RecordMain()
+        public DWRecordMain()
         {
             InitializeComponent();
         }

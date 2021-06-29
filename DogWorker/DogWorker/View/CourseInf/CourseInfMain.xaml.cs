@@ -18,9 +18,9 @@ namespace DogWorker.View.CourseInf
     /// <summary>
     /// MyAccount.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class CourseInfMain : Page
+    public partial class DWCourseInfMain : Page
     {
-        public CourseInfMain()
+        public DWCourseInfMain()
         {
             InitializeComponent();
         }

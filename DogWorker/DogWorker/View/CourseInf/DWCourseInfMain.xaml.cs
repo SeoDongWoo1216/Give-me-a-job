@@ -13,14 +13,14 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
-namespace DogWorker.View.Record
+namespace DogWorker.View.CourseInf
 {
     /// <summary>
     /// MyAccount.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class RecordMain : Page
+    public partial class CourseInfMain : Page
     {
-        public RecordMain()
+        public CourseInfMain()
         {
             InitializeComponent();
         }
@@ -60,6 +60,21 @@ namespace DogWorker.View.Record
             //    Commons.LOGGER.Error($"예외발생 StoreList Loaded : {ex}");
             //    throw ex;
             //}
+        }
+
+        private void BtncourseStart_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtncourseStop_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtncourseFinish_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         //private void BtnEditUser_Click(object sender, RoutedEventArgs e)
@@ -108,19 +123,5 @@ namespace DogWorker.View.Record
         //    //}
         //}
 
-        private void BtnAddDog_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnEditInf_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnDeleteInf_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

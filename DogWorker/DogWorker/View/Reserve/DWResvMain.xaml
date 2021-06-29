@@ -1,5 +1,5 @@
 ﻿<Page 
-    x:Class="DogWorker.View.Reserve.ResvMain"
+    x:Class="DogWorker.View.Reserve.DWResvMain"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -8,7 +8,7 @@
     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
     mc:Ignorable="d" 
     d:DesignHeight="630" d:DesignWidth="1200"
-    Title="ResvMain" Loaded="Page_Loaded">
+    Title="DWResvMain" Loaded="Page_Loaded">
     <Page.Resources>
         <Style TargetType="Label">
             <!-- {x:Type Label} -->
@@ -120,6 +120,8 @@
                 <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="130"/>
@@ -138,19 +140,27 @@
             <Label Grid.Row="3" Content="코스" 
                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                    FontSize="25"></Label>
-            <Label Grid.Row="4" Content="경력" 
+            <Label Grid.Row="4" Content="이름(개)" 
                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                    FontSize="25"></Label>
-            <Label Grid.Row="5" Content="소개말" 
+            <Label Grid.Row="5" Content="나이(개)" 
+                   VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                   FontSize="25"></Label>
+            <Label Grid.Row="6" Content="견종" 
+                   VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                   FontSize="25"></Label>
+            <Label Grid.Row="7" Content="성별" 
                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                    FontSize="25"></Label>
 
-            <TextBox x:Name="TxtUserName" Grid.Row="0" Grid.Column="1" Margin="10"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
-            <TextBox x:Name="TxtUserAge" Grid.Row="1" Grid.Column="1" Margin="10"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
-            <TextBox x:Name="TxtUserPhone" Grid.Row="2" Grid.Column="1" Margin="10"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
-            <TextBox x:Name="TxtCourse" Grid.Row="3" Grid.Column="1" Margin="10"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
-            <TextBox x:Name="TxtCareer" Grid.Row="4" Grid.Column="1" Margin="10"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
-            <TextBox x:Name="TxtIntro" Grid.Row="5" Grid.Column="1" Margin="10"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+            <TextBox x:Name="TxtUserName" Grid.Row="0" Grid.Column="1" Margin="10,2"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+            <TextBox x:Name="TxtUserAge" Grid.Row="1" Grid.Column="1" Margin="10,2"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+            <TextBox x:Name="TxtUserPhone" Grid.Row="2" Grid.Column="1" Margin="10,2"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+            <TextBox x:Name="TxtCourse" Grid.Row="3" Grid.Column="1" Margin="10,2"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+            <TextBox x:Name="TxtDogName" Grid.Row="4" Grid.Column="1" Margin="10,2"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+            <TextBox Grid.Row="5" Grid.Column="1" Margin="10,2"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+            <TextBox Grid.Row="6" Grid.Column="1" Margin="10,2"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+            <TextBox Grid.Row="7" Grid.Column="1" Margin="10,2"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 

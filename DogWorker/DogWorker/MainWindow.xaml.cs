@@ -95,7 +95,7 @@ namespace DogWorker
         {
             try
             {
-                ActiveControl.Content = new CourseInfMain();
+                //ActiveControl.Content = new CourseInfMain();
             }
             catch (Exception ex)
             {
@@ -121,7 +121,7 @@ namespace DogWorker
         {
             try
             {
-                ActiveControl.Content = new CSApplyMain();
+                ActiveControl.Content = new UserApplyMain();
             }
             catch (Exception ex)
             {
