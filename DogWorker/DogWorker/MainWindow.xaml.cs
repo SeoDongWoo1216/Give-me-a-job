@@ -3,11 +3,11 @@ using MahApps.Metro.Controls.Dialogs;
 using System;
 using System.Windows;
 
-using DogWorker.View.DogInf;
-using DogWorker.View.DogWorkerInf;
 using DogWorker.View.CourseInf;
 using DogWorker.View.Record;
 using DogWorker.View.Apply;
+using DogWorker.View.UserInf;
+using DogWorker.View.Reserve;
 
 namespace DogWorker
 {
@@ -88,41 +88,7 @@ namespace DogWorker
 
         private void BtnSetting_Click(object sender, RoutedEventArgs e)
         {
-            //try
-            //{
-            //    ActiveControl.Content = new SettingList();
-            //}
-            //catch (Exception ex)
-            //{
-            //    Commons.LOGGER.Error($"예외발생 BtnSetting_Click : {ex}");
-            //    this.ShowMessageAsync("예외", $"예외발생 : {ex}");
-            //}
-        }
-
-        private void BtnDogInf_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                ActiveControl.Content = new DogInfMain();
-            }
-            catch (Exception ex)
-            {
-                Commons.LOGGER.Error($"예외발생 BtnDogInf_Click : {ex}");
-                this.ShowMessageAsync("예외", $"예외발생 : {ex}");
-            }
-        }
-
-        private void BtnWorkerInf_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                ActiveControl.Content = new DWIMain();
-            }
-            catch (Exception ex)
-            {
-                Commons.LOGGER.Error($"예외발생 BtnWorkerInf_Click : {ex}");
-                this.ShowMessageAsync("예외", $"예외발생 : {ex}");
-            }
+            
         }
 
         private void BtnCourseInf_Click(object sender, RoutedEventArgs e)
@@ -163,5 +129,32 @@ namespace DogWorker
                 this.ShowMessageAsync("예외", $"예외발생 : {ex}");
             }
         }
+
+        private void BtnReserve_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ActiveControl.Content = new ResvMain();
+            }
+            catch (Exception ex)
+            {
+                Commons.LOGGER.Error($"예외발생 BtnDogInf_Click : {ex}");
+                this.ShowMessageAsync("예외", $"예외발생 : {ex}");
+            }
+        }
+
+        private void BtnUserInf_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ActiveControl.Content = new InfMain();
+            }
+            catch (Exception ex)
+            {
+                Commons.LOGGER.Error($"예외발생 BtnWorkerInf_Click : {ex}");
+                this.ShowMessageAsync("예외", $"예외발생 : {ex}");
+            }
+        }
+        
     }
 }
