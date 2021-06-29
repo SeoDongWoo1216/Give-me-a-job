@@ -51,3 +51,58 @@
   - 사람(User, Worker) 테이블   
   - 반려견 테이블   
   - 예약 테이블   
+
+
+#### 21-06-28   
+##### 금일 회의 내용   
+
+1. Oven활용한 UI 틀 만들기   
+2. 테이블 기술서 작성하기   
+  - 관리자(setting), 사람 (Human), 반려견(Dog), 일지(Note), 실시간 지도(RealtimeMap), 이용자 신청(UserTimetable), 도그워커 신청(DogWalkerTimetable)    
+  - 관리자 테이블 : 견종 및 특이사항 코드관리   
+  - 사람 : [S- 관리자, W- 도그워커, U- 견주] 권한으로 이용자 분리   
+  - 반려견 : M-남, W-여, N-중성   
+  
+### 💈 이용자 서비스 주 내용    
+  - 실시간 산책 경로 파악 가능   
+  - 실시간 산책 상황 파악 가능(간식, 배변, 특이사항등)   
+  - 날짜 및 시간별 산책 list확인 가능   
+
+### DB다이어 그램   
+<img src = "https://github.com/SeoDongWoo1216/Give-me-a-job/blob/main/images/dbr1.png" width="50%" height="50%">
+
+### DB테이블 기술서   
+
+#### HumanTbl   
+<img src = "https://github.com/SeoDongWoo1216/Give-me-a-job/blob/main/images/htbl.png" width="50%" height="50%">   
+#### SettingTbl   
+<img src = "https://github.com/SeoDongWoo1216/Give-me-a-job/blob/main/images/stbl.png">   
+#### DogTbl   
+<img src = "https://github.com/SeoDongWoo1216/Give-me-a-job/blob/main/images/dtbl.png" width="50%" height="50%">   
+#### NoteTbl   
+<img src = "https://github.com/SeoDongWoo1216/Give-me-a-job/blob/main/images/ntbl.png" width="50%" height="50%">    
+#### RealTimeMapTbl   
+<img src = "https://github.com/SeoDongWoo1216/Give-me-a-job/blob/main/images/rtbl.png" width="50%" height="50%">   
+#### UserTimetableTbl   
+<img src = "https://github.com/SeoDongWoo1216/Give-me-a-job/blob/main/images/utbl.png" width="50%" height="50%">   
+#### DogWalkerTimetableTbl   
+<img src = "https://github.com/SeoDongWoo1216/Give-me-a-job/blob/main/images/wtbl.png" width="50%" height="50%">    
+
+### Oven UI   
+
+#### 메인 view   
+<img src = "https://github.com/SeoDongWoo1216/Give-me-a-job/blob/main/images/ui2.png" width="50%" height="50%">   
+#### 로그인 view   
+<img src = "https://github.com/SeoDongWoo1216/Give-me-a-job/blob/main/images/lui1.png" width="50%" height="50%">   
+#### 신청 view   
+<img src = "https://github.com/SeoDongWoo1216/Give-me-a-job/blob/main/images/ui3.png" width="50%" height="50%">     
+#### 예약확인 view   
+<img src = "https://github.com/SeoDongWoo1216/Give-me-a-job/blob/main/images/ui4.png" width="50%" height="50%">      
+#### 산책 view   
+<img src = "https://github.com/SeoDongWoo1216/Give-me-a-job/blob/main/images/ui5.png" width="50%" height="50%">      
+#### 오늘의 일지 view   
+<img src = "https://github.com/SeoDongWoo1216/Give-me-a-job/blob/main/images/ui7.png" width="50%" height="50%">      
+#### 계정정보 view   
+<img src = "https://github.com/SeoDongWoo1216/Give-me-a-job/blob/main/images/ui8.png" width="50%" height="50%">   
+
+
