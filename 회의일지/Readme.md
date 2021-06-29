@@ -8,7 +8,11 @@
 - UI는 .NET 으로 제작 
 - GPS 진행은 프로젝트 깃허브에 업로드 
 - 지도 API는 선별 필요
-- 회의는 18일 이후 진행 (진행 사항은 공유) => MQTT 미니프로젝트 진행하면서 통신 기술을 익히기 위함
+- 회의는 18일 이후 진행 (진행 사항은 공유) => MQTT 미니프로젝트 진행하면서 통신 기술을 익히기 위함   
+
+##### UI 1차 구성   
+<img src = "https://github.com/SeoDongWoo1216/Give-me-a-job/blob/main/images/ui.png" width="50%" height="50%">    
+<img src = "https://github.com/SeoDongWoo1216/Give-me-a-job/blob/main/images/ui1.png" width="50%" height="50%">
 
 #### 21-06-24
 - 라즈베리파이를 이용한 GPS(NEO-6M) 모듈 데이터 값 받아오기 완료(경도, 위도 가져옴)
