@@ -148,15 +148,23 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="60"/>
-                <RowDefinition Height="1*"/>
+                <RowDefinition Height="0.6*"/>
 
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-
-            <Calendar Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"/>
+            <!--달력부분 시작-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <TextBox x:Name="TxtDate" Grid.Row="1" Width="160" HorizontalAlignment="Center" IsReadOnly="True" ></TextBox>
+                <Calendar x:Name="CalDate" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Width="170" PreviewMouseUp="CalDate_PreviewMouseUp"/>
+            </Grid>
+            <!--달력부분 끝-->
             <DataGrid x:Name="GrdData" Grid.Row="0" Grid.Column="1" 
                       AutoGenerateColumns="False" SelectionUnit="FullRow"
                       GridLinesVisibility="Vertical" IsReadOnly="True"

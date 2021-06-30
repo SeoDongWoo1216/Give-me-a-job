@@ -27,6 +27,8 @@ namespace DogWorker.View.Apply
         {
             try
             {
+                TxtDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
+
                 LoadGridData();
 
                 InitErrorMessages();
@@ -218,6 +220,29 @@ namespace DogWorker.View.Apply
         {
             if (e.Key == Key.Enter)
                 BtnSearch_Click(sender, e);
+        }
+
+        private void CalDate_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                if (CalDate.SelectedDate == null)
+                {
+
+                }
+                else
+                {
+                    DateTime dt = (DateTime)CalDate.SelectedDate;
+                    TxtDate.Text = dt.ToString("yyyy-MM-dd");
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
         }
     }
 }
