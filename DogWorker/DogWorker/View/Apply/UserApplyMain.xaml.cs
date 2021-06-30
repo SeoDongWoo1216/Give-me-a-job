@@ -228,7 +228,7 @@ namespace DogWorker.View.Apply
             {
                 if (CalDate.SelectedDate==null)
                 {
-                     
+                      
                 }
                 else
                 {
