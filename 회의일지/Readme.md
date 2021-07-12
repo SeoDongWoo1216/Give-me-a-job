@@ -81,8 +81,10 @@
 #### 🚩21-06-30
 1. 중간보고 PPT 제작
 2. 오븐을 토대로 UI 제작(WPF) 
-3. 요구사항 정의서 작성 ([링크](https://github.com/SeoDongWoo1216/Give-me-a-job/blob/main/%EC%84%A4%EA%B3%84%EC%84%9C/%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD_%EC%A0%95%EC%9D%98%EC%84%9C.xlsx))
+3. 요구사항 정의서 작성 ([링크](https://github.com/SeoDongWoo1216/Give-me-a-job/blob/main/%EC%84%A4%EA%B3%84%EC%84%9C/%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD_%EC%A0%95%EC%9D%98%EC%84%9C.xlsx)) <br>
 
 
-
+#### 🚩21-07-12
+1. 통신 모듈 조사 및 구매하기 : 블루투스, 와이파이, 장거리통신, USIM(?) <br>
+구매사이트 : [디바이스마트](https://www.devicemart.co.kr/main/index?gclid=Cj0KCQjwraqHBhDsARIsAKuGZeGGaNTRgKOz7LehG0nAj2I1PNSToGUBaA_SGckcKS_F2yM5jMUTzmUaAtATEALw_wcB), [엘레파츠](https://www.eleparts.co.kr/main/index)
 
