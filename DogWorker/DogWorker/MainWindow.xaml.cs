@@ -95,7 +95,7 @@ namespace DogWorker
         {
             try
             {
-                //ActiveControl.Content = new CourseInfMain();
+                ActiveControl.Content = new CourseInfMain();
             }
             catch (Exception ex)
             {

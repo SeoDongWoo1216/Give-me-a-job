@@ -209,6 +209,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helper\MyLocale.cs" />
     <Compile Include="Logic\DataAccess.cs" />
     <Compile Include="View\Apply\DWApplyMain.xaml.cs">
       <DependentUpon>DWApplyMain.xaml</DependentUpon>

@@ -1,4 +1,5 @@
-﻿using iTextSharp.text;
+﻿using DogWorker.Helper;
+using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Microsoft.Win32;
 using NPOI.HSSF.UserModel;
@@ -18,9 +19,9 @@ namespace DogWorker.View.CourseInf
     /// <summary>
     /// MyAccount.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class DWCourseInfMain : Page
+    public partial class CourseInfMain : Page
     {
-        public DWCourseInfMain()
+        public CourseInfMain()
         {
             InitializeComponent();
         }
@@ -62,19 +63,23 @@ namespace DogWorker.View.CourseInf
             //}
         }
 
-        private void BtncourseStart_Click(object sender, RoutedEventArgs e)
-        {
+       
 
+        private void BtnMap_Click(object sender, RoutedEventArgs e)
+        {
+            //List<MyLocale> mls = KakaoAPI.Search(TxtMap.Text);
+           // ListName.ItemsSource = mls;
         }
 
-        private void BtncourseStop_Click(object sender, RoutedEventArgs e)
+        private void ListName_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-        }
-
-        private void BtncourseFinish_Click(object sender, RoutedEventArgs e)
-        {
-
+            if(ListName.SelectedIndex==-1)
+            {
+                return;
+            }
+            MyLocale ml = ListName.SelectedItem as MyLocale;
+            object[] ps = new object[] { ml.Lat, ml.Lng }; // 위도 경도 값을 받아오는 코드
+            wb.InvokeScript("setCenter",ps);
         }
 
         //private void BtnEditUser_Click(object sender, RoutedEventArgs e)
