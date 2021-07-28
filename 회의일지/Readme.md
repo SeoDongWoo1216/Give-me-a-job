@@ -88,3 +88,9 @@
 1. 통신 모듈 조사 및 구매하기 : 블루투스, 와이파이, 장거리통신, USIM(?) <br>
 구매사이트 : [디바이스마트](https://www.devicemart.co.kr/main/index?gclid=Cj0KCQjwraqHBhDsARIsAKuGZeGGaNTRgKOz7LehG0nAj2I1PNSToGUBaA_SGckcKS_F2yM5jMUTzmUaAtATEALw_wcB), [엘레파츠](https://www.eleparts.co.kr/main/index)
 
+#### 🚩21-07-28
+취업 이슈로인해 기능 축소
+1. UI는 도그워커로 만들예정(관리자모드)
+2. DB는 도그워커측면으로 축소
+3. WPF(UI)도 수정 예정
+4. GPS 모듈 테스트 -> MQTT로 GPS 데이터값을 받을 수 있는지 테스트 필요
