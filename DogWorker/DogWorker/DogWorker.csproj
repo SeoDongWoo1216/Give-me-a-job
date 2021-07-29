@@ -244,14 +244,11 @@
     <Compile Include="View\Apply\DWApplyMain.xaml.cs">
       <DependentUpon>DWApplyMain.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\CourseInf\DWCourseInfMain.xaml.cs">
-      <DependentUpon>DWCourseInfMain.xaml</DependentUpon>
+    <Compile Include="View\Apply\SchAdd.xaml.cs">
+      <DependentUpon>SchAdd.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CourseInf\CourseInfMain.xaml.cs">
       <DependentUpon>CourseInfMain.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Apply\UserApplyMain.xaml.cs">
-      <DependentUpon>UserApplyMain.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
@@ -259,20 +256,8 @@
     <Compile Include="View\Record\DWRecordMain.xaml.cs">
       <DependentUpon>DWRecordMain.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Record\RecordMain.xaml.cs">
-      <DependentUpon>RecordMain.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Reserve\DWResvMain.xaml.cs">
-      <DependentUpon>DWResvMain.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\UserInf\DWInfMain.xaml.cs">
       <DependentUpon>DWInfMain.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\UserInf\InfMain.xaml.cs">
-      <DependentUpon>InfMain.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Reserve\ResvMain.xaml.cs">
-      <DependentUpon>ResvMain.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -291,15 +276,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\CourseInf\DWCourseInfMain.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="View\Apply\SchAdd.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\CourseInf\CourseInfMain.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\Apply\UserApplyMain.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -311,23 +292,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Record\RecordMain.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\Reserve\DWResvMain.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="View\UserInf\DWInfMain.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\UserInf\InfMain.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\Reserve\ResvMain.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -21,18 +21,26 @@ namespace DogWorker.Logic
             }
             return users;
         }
+        public static List<ScheduleTBL> Getschedules()//Model(DB안의 USER이라는 테이블)
+        {
+            List<ScheduleTBL> schedules;
 
-        //셋팅 테이블에서 데이터 가져오기
-        //public static List<Settings> GetSettings()
-        //{
-        //    List<Model.Settings> settings;
-        //    using (var ctx = new MRPEntities()) // ctx에 MRP데이터를 넣는 행동 , new MRPEntities를 사용함으로써 커넥션 커맨드 파라미터 역할을 해줌
-        //    {
-        //        settings = ctx.Settings.ToList();
-        //    }// using을 사용함으로써 데이터베이스를 열고 알아서 닫아주는 역할을 함
-        //    return settings;
+            using (var ctx = new DogWorkerEntities()) //ERPModel.Context.cs와 연결이 됨 ctx는 context의 약자
+            {
+                schedules = ctx.ScheduleTBL.ToList(); //ctx는 ERPEnitities의 내용을 가지고 있기 때문에 안에 user가 들어있다.
+                //위의 문장은 DB의 명령어 SELECT * FROM USER와 같다.
+            }
+            return schedules;
+        }
+        public static int Setschedules(ScheduleTBL scheduleTBL)
+        {
+            using (var ctx = new DogWorkerEntities())
+            {
+                ctx.ScheduleTBL.AddOrUpdate(scheduleTBL);
+                return ctx.SaveChanges(); //COMMIT
+            }
+        }
 
-        //}
 
         //public static int SetSettings(Settings item)
         //{

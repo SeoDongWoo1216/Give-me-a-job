@@ -26,11 +26,10 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
-                <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Button x:Name="BtnApply" 
                     Grid.Column="0" 
-                    Content="신청" FontSize="16" 
+                    Content="스케줄" FontSize="16" 
                     Foreground="White" Background="Red"
                     Margin="5, 10" Click="BtnApply_Click">
                 <Button.ContentTemplate>
@@ -42,23 +41,9 @@
                     </DataTemplate>
                 </Button.ContentTemplate>
             </Button>
-            <Button x:Name="BtnReserve" 
-                    Grid.Column="1" 
-                    Content="예약확인" FontSize="16" 
-                    Foreground="White" Background="DodgerBlue"
-                    Margin="5, 10" Click="BtnReserve_Click">
-                <Button.ContentTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding}" Margin="10, 0" VerticalAlignment="Center" />
-                            <iconPacks:PackIconMaterial Kind="Book" Width="24" Height="24" />
-                        </StackPanel>
-                    </DataTemplate>
-                </Button.ContentTemplate>
-            </Button>
             <Button x:Name="BtnCourseInf" 
                     Grid.Column="2" 
-                    Content="산책정보" FontSize="16" 
+                    Content="GPS" FontSize="16" 
                     Foreground="White" Background="DarkViolet"
                     Margin="5, 10" Click="BtnCourseInf_Click">
                 <Button.ContentTemplate>
@@ -72,8 +57,8 @@
             </Button>
 
             <Button x:Name="Btnrecord" 
-                    Grid.Column="3" 
-                    Content="오늘의 기록" FontSize="16" 
+                    Grid.Column="1" 
+                    Content="일지작성" FontSize="16" 
                     Foreground="White" Background="Orange"
                     Margin="5, 10" Click="Btnrecord_Click">
                 <Button.ContentTemplate>
@@ -86,8 +71,8 @@
                 </Button.ContentTemplate>
             </Button>
             <Button x:Name="BtnUserInf" 
-                    Grid.Column="4" 
-                    Content="계정 정보" FontSize="16" 
+                    Grid.Column="3" 
+                    Content="계정 관리" FontSize="16" 
                     Foreground="White" Background="Green"
                     Margin="5, 10" Click="BtnUserInf_Click">
                 <Button.ContentTemplate>
@@ -100,7 +85,7 @@
                 </Button.ContentTemplate>
             </Button>
             <Button x:Name="BtnSetting" 
-                    Grid.Column="5" 
+                    Grid.Column="4" 
                     Content="설정" FontSize="16" 
                     Foreground="White" Background="Olive"
                     Margin="5, 10" Click="BtnSetting_Click">

@@ -7,7 +7,6 @@ using DogWorker.View.CourseInf;
 using DogWorker.View.Record;
 using DogWorker.View.Apply;
 using DogWorker.View.UserInf;
-using DogWorker.View.Reserve;
 using DogWorker.View;
 
 namespace DogWorker
@@ -112,7 +111,7 @@ namespace DogWorker
         {
             try
             {
-                ActiveControl.Content = new RecordMain();
+                ActiveControl.Content = new DWRecordMain();
             }
             catch (Exception ex)
             {
@@ -125,7 +124,7 @@ namespace DogWorker
         {
             try
             {
-                ActiveControl.Content = new UserApplyMain();
+                ActiveControl.Content = new DWApplyMain();
             }
             catch (Exception ex)
             {
@@ -133,25 +132,12 @@ namespace DogWorker
                 this.ShowMessageAsync("예외", $"예외발생 : {ex}");
             }
         }
-
-        private void BtnReserve_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                ActiveControl.Content = new ResvMain();
-            }
-            catch (Exception ex)
-            {
-                Commons.LOGGER.Error($"예외발생 BtnDogInf_Click : {ex}");
-                this.ShowMessageAsync("예외", $"예외발생 : {ex}");
-            }
-        }
-
+        
         private void BtnUserInf_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                ActiveControl.Content = new InfMain();
+                ActiveControl.Content = new DWInfMain();
             }
             catch (Exception ex)
             {
