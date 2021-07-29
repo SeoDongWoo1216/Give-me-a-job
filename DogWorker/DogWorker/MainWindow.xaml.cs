@@ -121,7 +121,7 @@ namespace DogWorker
         {
             try
             {
-                ActiveControl.Content = new CSApplyMain();
+                ActiveControl.Content = new UserApplyMain();
             }
             catch (Exception ex)
             {

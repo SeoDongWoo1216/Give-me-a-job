@@ -110,21 +110,21 @@ namespace DogWorker.View.Reserve
 
         
 
-        private void btnLoadFromFile_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            if (openFileDialog.ShowDialog() == true)
-            {
-                Uri fileUri = new Uri(openFileDialog.FileName);
-                imgDynamic.Source = new BitmapImage(fileUri);
-            }
-        }
+        //private void btnLoadFromFile_Click(object sender, RoutedEventArgs e)
+        //{
+        //    OpenFileDialog openFileDialog = new OpenFileDialog();
+        //    if (openFileDialog.ShowDialog() == true)
+        //    {
+        //        Uri fileUri = new Uri(openFileDialog.FileName);
+        //        imgDynamic.Source = new BitmapImage(fileUri);
+        //    }
+        //}
 
-        private void btnLoadFromResource_Click(object sender, RoutedEventArgs e)
-        {
-            Uri resourceUri = new Uri("/Images/white_bengal_tiger.jpg", UriKind.Relative);
-            imgDynamic.Source = new BitmapImage(resourceUri);
-        }
+        //private void btnLoadFromResource_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Uri resourceUri = new Uri("/Images/white_bengal_tiger.jpg", UriKind.Relative);
+        //    imgDynamic.Source = new BitmapImage(resourceUri);
+        //}
 
         private void BtnAddDog_Click(object sender, RoutedEventArgs e)
         {

@@ -33,41 +33,29 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
-            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="0.6*" />
+            <ColumnDefinition Width="100" />
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="210" />
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="20" />
         </Grid.ColumnDefinitions>
 
         <!-- 제목입력 시작 -->
-        <Label Grid.Row="0" Grid.Column="1" Content="산책 정보(세부 페이지)" FontSize="50" FontWeight="ExtraBold"
+        <Label Grid.Row="0" Grid.Column="1" Content="실시간 산책" FontSize="50" FontWeight="ExtraBold"
                VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Grid.ColumnSpan="2" />
         <!-- 제목입력 끝 -->
 
         <!-- 버튼영역 시작 -->
-        <StackPanel Grid.Row="1" Grid.Column="3" VerticalAlignment="Bottom"  Margin="0,121,0,30">
-
+        <!--<StackPanel Grid.Row="2" Grid.Column="2" HorizontalAlignment="Right" Orientation="Horizontal" Grid.ColumnSpan="2">
             <Button x:Name="BtncourseStart" 
                     FontSize="14"
                     Background="DarkSlateBlue" Foreground="White"
-                    Content="산책 시작" Height="50" Margin="5,15,5,0" Click="BtncourseStart_Click">
+                    Content="산책 시작" Height="50" Width="140" Click="BtncourseStart_Click">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding}" Margin="20, 0" VerticalAlignment="Center" />
+                            <TextBlock Text="{Binding}" Margin="10, 0" VerticalAlignment="Center" />
                             <iconPacks:PackIconMaterialDesign Kind="AddCircle" Width="24" Height="24" />
-                        </StackPanel>
-                    </DataTemplate>
-                </Button.ContentTemplate>
-            </Button>
-            <Button x:Name="BtncourseStop" 
-                    FontSize="14"
-                    Background="DarkSlateBlue" Foreground="White"
-                    Content="산책 중지" Height="50" Margin="5,15,5,15" Click="BtncourseStop_Click">
-                <Button.ContentTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding}" Margin="20, 0" VerticalAlignment="Center" />
-                            <iconPacks:PackIconFontAwesome Kind="PenSolid" Width="24" Height="24" />
                         </StackPanel>
                     </DataTemplate>
                 </Button.ContentTemplate>
@@ -75,67 +63,49 @@
             <Button x:Name="BtncourseFinish" 
                     FontSize="14"
                     Background="DarkSlateBlue" Foreground="White"
-                    Content="산책종료" Height="50" Margin="5,5" Click="BtncourseFinish_Click" >
+                    Content="산책종료" Height="50" Width="140" Margin="5" Click="BtncourseFinish_Click" >
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding}" Margin="20, 0" VerticalAlignment="Center" />
+                            <TextBlock Text="{Binding}" Margin="0" VerticalAlignment="Center" />
                             <iconPacks:PackIconModern Kind="Delete" Width="24" Height="24" />
                         </StackPanel>
                     </DataTemplate>
                 </Button.ContentTemplate>
             </Button>
-        </StackPanel>
+        </StackPanel>-->
         <!-- 버튼영역 끝 -->
+        <!--데이터 그리드 영역 시작-->
+        <DataGrid Grid.Row="1" Grid.Column="1" Margin="10">
 
-        <!-- 컨텐츠영역 시작 -->
-        <!--그림-->
-        <Grid Grid.Row="1" Grid.Column="1" Margin="5">
-            <!--지도 API 들어갈부분-->
+        </DataGrid>
+        <!--데이터 그리드 영역 끝-->
+        
+        <!--그림영역 시작-->
 
-
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"/>
-
-        </Grid>
-        <!--설명-->
-        <Grid Grid.Row="1" Grid.Column="2" Margin="30">
+        <WebBrowser x:Name="wb" Grid.Row="1" Grid.Column="3" Source="http://127.0.0.1:8080/" >
+        
+        </WebBrowser>
+        
+        <!--그림영역 끝-->
+        <!--특이사항 영역 시작-->
+        <Grid Grid.Row="1" Grid.Column="4" Margin="10">
             <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
+
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="130"/>
-                <ColumnDefinition/>
+
 
             </Grid.ColumnDefinitions>
-            <Label Grid.Row="0" Content="날씨" 
-                   VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
-                   FontSize="25"></Label>
-            <Label Grid.Row="1" Content="소요시간" 
-                   VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
-                   FontSize="25"></Label>
-            <Label Grid.Row="2" Content="이동거리" 
-                   VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
-                   FontSize="25"></Label>
-            <Label Grid.Row="3" Content="특이사항" Grid.RowSpan="2"
-                   VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
-                   FontSize="25"></Label>
-            
 
-            <TextBox x:Name="DogBreed" Grid.Row="0" Grid.Column="1" Margin="10"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
-            <TextBox x:Name="Gender" Grid.Row="1" Grid.Column="1" Margin="10"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
-            <TextBox x:Name="Age" Grid.Row="2" Grid.Column="1" Margin="10"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
-            <TextBox x:Name="Feature" Grid.RowSpan="2" Grid.Row="3" Grid.Column="1" Margin="10"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-
-            </StackPanel>
+            <TextBox x:Name="DogBreed" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="10"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+            <!--<ComboBox Grid.Row="1" Margin="10" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="200"></ComboBox>
+            <Button Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Width="70" Margin="10" Background="DarkSlateBlue" Content="등록" FontSize="12" Foreground="White"></Button>-->
 
         </Grid>
-        <!-- 컨텐츠영역 끝 -->
+        <!--특이사항 영역 끝-->
+        <ListBox x:Name="ListName"  Grid.Row="1" Grid.Column="2"  SelectionChanged="ListName_SelectionChanged" ></ListBox>
+        <TextBox x:Name="TxtMap" Grid.Row="3" Grid.Column="3" Height="50" Width="300" HorizontalAlignment="Right" ></TextBox>
+        <Button x:Name="BtnMap" Grid.Row="3" Grid.Column="4" Width="100" Height="50" Margin="5"  HorizontalAlignment="Left" Background="CornflowerBlue" Click="BtnMap_Click"></Button>
     </Grid>
 </Page>

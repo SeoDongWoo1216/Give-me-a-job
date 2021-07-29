@@ -39,12 +39,13 @@
         </Grid.ColumnDefinitions>
 
         <!-- 제목입력 시작 -->
-        <Label Grid.Row="0" Grid.Column="1" Content="반려견 정보(세부)" FontSize="50" FontWeight="ExtraBold"
+        <Label Grid.Row="0" Grid.Column="1" Content="예약확인 정보" FontSize="50" FontWeight="ExtraBold"
                VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Grid.ColumnSpan="2" />
         <!-- 제목입력 끝 -->
 
         <!-- 버튼영역 시작 -->
-        <StackPanel Grid.Row="1" Grid.Column="3" VerticalAlignment="Bottom"  Margin="0,121,0,30">
+        <!-- 버튼영역 없애기로 했음 -->
+        <!--<StackPanel Grid.Row="1" Grid.Column="3" VerticalAlignment="Bottom"  Margin="0,121,0,30">
 
             <Button x:Name="BtnAddDog" 
                     FontSize="14"
@@ -85,12 +86,12 @@
                     </DataTemplate>
                 </Button.ContentTemplate>
             </Button>
-        </StackPanel>
+        </StackPanel>-->
         <!-- 버튼영역 끝 -->
 
         <!-- 컨텐츠영역 시작 -->
-        <!--그림-->
-        <Grid Grid.Row="1" Grid.Column="1" Margin="5">
+        <!--그림 시작-->
+        <!--<Grid Grid.Row="1" Grid.Column="1" Margin="5">
             <StackPanel>
                 <WrapPanel Margin="10" HorizontalAlignment="Center">
                     <Button Name="btnLoadFromFile" Margin="0,0,20,0" Click="btnLoadFromFile_Click">Load from File...</Button>
@@ -103,10 +104,17 @@
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"/>
 
+        </Grid>-->
+        <!--그림 끝-->
+        <Grid Grid.Row="1" Grid.Column="1" Margin="5">
+            <DataGrid>
+                
+            </DataGrid>
         </Grid>
         <!--설명-->
         <Grid Grid.Row="1" Grid.Column="2" Margin="30">
             <Grid.RowDefinitions>
+                <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
@@ -118,27 +126,31 @@
                 <ColumnDefinition/>
 
             </Grid.ColumnDefinitions>
-            <Label Grid.Row="0" Content="품종" 
+            <Label Grid.Row="0" Content="이름" 
                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                    FontSize="25"></Label>
-            <Label Grid.Row="1" Content="성별" 
+            <Label Grid.Row="1" Content="나이" 
                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                    FontSize="25"></Label>
-            <Label Grid.Row="2" Content="나이" 
+            <Label Grid.Row="2" Content="전화번호" 
                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                    FontSize="25"></Label>
-            <Label Grid.Row="3" Content="특징" 
+            <Label Grid.Row="3" Content="코스" 
                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                    FontSize="25"></Label>
-            <Label Grid.Row="4" Content="비고" 
+            <Label Grid.Row="4" Content="경력" 
+                   VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                   FontSize="25"></Label>
+            <Label Grid.Row="5" Content="소개말" 
                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                    FontSize="25"></Label>
 
-            <TextBox x:Name="DogBreed" Grid.Row="0" Grid.Column="1" Margin="10"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
-            <TextBox x:Name="Gender" Grid.Row="1" Grid.Column="1" Margin="10"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
-            <TextBox x:Name="Age" Grid.Row="2" Grid.Column="1" Margin="10"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
-            <TextBox x:Name="Feature" Grid.Row="3" Grid.Column="1" Margin="10"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
-            <TextBox x:Name="Etc" Grid.Row="4" Grid.Column="1" Margin="10"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+            <TextBox x:Name="TxtUserName" Grid.Row="0" Grid.Column="1" Margin="10"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+            <TextBox x:Name="TxtUserAge" Grid.Row="1" Grid.Column="1" Margin="10"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+            <TextBox x:Name="TxtUserPhone" Grid.Row="2" Grid.Column="1" Margin="10"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+            <TextBox x:Name="TxtCourse" Grid.Row="3" Grid.Column="1" Margin="10"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+            <TextBox x:Name="TxtCareer" Grid.Row="4" Grid.Column="1" Margin="10"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+            <TextBox x:Name="TxtIntro" Grid.Row="5" Grid.Column="1" Margin="10"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 
