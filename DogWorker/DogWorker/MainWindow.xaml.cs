@@ -8,6 +8,7 @@ using DogWorker.View.Record;
 using DogWorker.View.Apply;
 using DogWorker.View.UserInf;
 using DogWorker.View.Reserve;
+using DogWorker.View;
 
 namespace DogWorker
 {
@@ -28,12 +29,15 @@ namespace DogWorker
 
         private void MetroWindow_Activated(object sender, EventArgs e)
         {
-            //if (Commons.LOGINED_USER != null)
-            //    BtnLoginedId.Content = $"{Commons.LOGINED_USER.UserEmail} ({Commons.LOGINED_USER.UserName})";
+            if (Commons.LOGINED_USER != null)
+                BtnLoginedId.Content = $"{Commons.LOGINED_USER.ID} ({Commons.LOGINED_USER.ID})";
         }
         private void ShowLoginView()
         {
-
+            LoginView view = new LoginView();
+            view.Owner = this;
+            view.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            view.ShowDialog();
         }
 
         private async void BtnAccount_Click(object sender, RoutedEventArgs e)

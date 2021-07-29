@@ -1,4 +1,4 @@
-﻿//using DogWorker.Model;
+﻿using DogWorker.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
@@ -10,6 +10,18 @@ namespace DogWorker.Logic
 {
     public class DataAccess
     {
+        public static List<USERTBL> Getusers()//Model(DB안의 USER이라는 테이블)
+        {
+            List<USERTBL> users;
+
+            using (var ctx = new DogWorkerEntities()) //ERPModel.Context.cs와 연결이 됨 ctx는 context의 약자
+            {
+                users = ctx.USERTBL.ToList(); //ctx는 ERPEnitities의 내용을 가지고 있기 때문에 안에 user가 들어있다.
+                //위의 문장은 DB의 명령어 SELECT * FROM USER와 같다.
+            }
+            return users;
+        }
+
         //셋팅 테이블에서 데이터 가져오기
         //public static List<Settings> GetSettings()
         //{

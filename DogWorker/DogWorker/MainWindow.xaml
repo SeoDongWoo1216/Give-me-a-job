@@ -14,7 +14,7 @@
     WindowStartupLocation="CenterScreen">
     <mah:MetroWindow.RightWindowCommands>
         <mah:WindowCommands>
-            <Button x:Name="BtnPlantName" />
+            <Button x:Name="BtnLoginedId" />
         </mah:WindowCommands>
     </mah:MetroWindow.RightWindowCommands>
     <DockPanel>

@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using DogWorker.Model;
+using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using NLog;
 using System.Security.Cryptography;
@@ -13,6 +14,8 @@ namespace DogWorker
     {
         // NLog 정적 인스턴스 생성
         public static readonly Logger LOGGER = LogManager.GetCurrentClassLogger();
+
+        public static USERTBL LOGINED_USER;
 
 
         /// <summary>
