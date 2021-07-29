@@ -93,4 +93,10 @@
 1. UI는 도그워커로 만들예정(관리자모드)
 2. DB는 도그워커측면으로 축소
 3. WPF(UI)도 수정 예정
-4. GPS 모듈 테스트 -> MQTT로 GPS 데이터값을 받을 수 있는지 테스트 필요
+4. GPS 모듈 테스트 -> MQTT로 GPS 데이터값을 받을 수 있는지 테스트 필요   
+
+#### 🚩21-07-29   
+1. UI ver2. 전체 틀 제작   
+<img src = "https://github.com/SeoDongWoo1216/Give-me-a-job/blob/main/%ED%9A%8C%EC%9D%98%EC%9D%BC%EC%A7%80/Image/UI/0729ui.jpg" width="50%" height="50%">   
+2. 테이블 기술서 ver2. 작성   
+ 
