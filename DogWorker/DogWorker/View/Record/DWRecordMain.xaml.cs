@@ -39,8 +39,16 @@ namespace DogWorker.View.Record
 
         private void GrdData_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
-            var select = GrdData.SelectedItem as Model.DiaryTBL;
-            TxtDycontents.Text = select.Contents;
+            try
+            {
+                var select = GrdData.SelectedItem as Model.DiaryTBL;
+                TxtDycontents.Text = select.Contents;
+            }
+            catch (Exception ex)
+            {
+                Commons.LOGGER.Error($"예외 발생 : {ex}");
+            }
+            
 
         }
     }

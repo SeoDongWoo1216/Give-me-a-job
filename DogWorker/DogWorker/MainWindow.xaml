@@ -25,7 +25,6 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
-                <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Button x:Name="BtnApply" 
                     Grid.Column="0" 
@@ -80,20 +79,6 @@
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding}" Margin="3, 0" VerticalAlignment="Center" />
                             <iconPacks:PackIconMaterial Kind="Account" Width="24" Height="24"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </Button.ContentTemplate>
-            </Button>
-            <Button x:Name="BtnSetting" 
-                    Grid.Column="4" 
-                    Content="설정" FontSize="16" 
-                    Foreground="White" Background="Olive"
-                    Margin="5, 10" Click="BtnSetting_Click">
-                <Button.ContentTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding}" Margin="20, 0" VerticalAlignment="Center" />
-                            <iconPacks:PackIconForkAwesome Kind="Cog" Width="24" Height="24" />
                         </StackPanel>
                     </DataTemplate>
                 </Button.ContentTemplate>
