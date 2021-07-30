@@ -57,7 +57,7 @@ namespace DogWorker.View.Apply
             SchAdd view = new SchAdd();
             view.ShowDialog();
             
-            //LoadData(); 20210730일날 하기
+            LoadData(); //20210730일날 하기
         }
 
         private void GrdData_SelectedCellsChanged_1(object sender, SelectedCellsChangedEventArgs e)

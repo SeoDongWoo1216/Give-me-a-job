@@ -41,25 +41,29 @@
             </Grid.ColumnDefinitions>
             <!--왼쪽부분 시작-->
             <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="38*"/>
+                    <ColumnDefinition Width="237*"/>
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"/>
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" Content="예약리스트" HorizontalContentAlignment="Left" FontSize="20"/>
+                <Label Grid.Row="0" Content="예약리스트" HorizontalContentAlignment="Left" FontSize="20" Grid.ColumnSpan="2"/>
                 <!-- AutoGenerateColumns="False" 중요!!! 자동으로 데이터가 들어가는 것을 방지-->
                 <DataGrid x:Name="GrdData" Grid.Row="1"
                           AutoGenerateColumns="False" 
                           SelectionUnit="FullRow"
                           GridLinesVisibility="Vertical"
                           Style="{StaticResource MahApps.Styles.DataGrid.Azure}"
-                          ItemsSource="{Binding}" SelectedCellsChanged="GrdData_SelectedCellsChanged_1">
+                          ItemsSource="{Binding}" SelectedCellsChanged="GrdData_SelectedCellsChanged_1" Grid.ColumnSpan="2">
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding Schidx}" Header="순번" Width="60"/>
                         <DataGridTextColumn Binding="{Binding Schdate}" Header="날짜" Width="1*"/>
                         <DataGridTextColumn Binding="{Binding Schtime}" Header="시간" Width="1*"/>
                         <DataGridTextColumn Binding="{Binding Schplace}" Header="장소" Width="1*"/>
                     </DataGrid.Columns>
-                    
+
                 </DataGrid>
             </Grid>
             <!--왼쪽부분 끝-->
@@ -126,7 +130,7 @@
         </Grid>
 
         <Grid Grid.Row="2">
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Right">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Center">
                 <Button x:Name="BtnReserve" 
                     Height="40" Width="90" Content="예약추가" FontSize="14" 
                     Background="CornflowerBlue"

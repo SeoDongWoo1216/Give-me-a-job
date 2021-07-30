@@ -32,6 +32,21 @@ namespace DogWorker.Logic
             }
             return schedules;
         }
+
+        internal static List<DiaryTBL> GetDiary()
+        {
+            List<DiaryTBL> diaries;
+            using (var ctx = new DogWorkerEntities())
+            {
+                diaries = ctx.DiaryTBL.ToList();
+                foreach (var item in diaries)
+                {
+                    item.Contents_Summary = item.Contents.Substring(0, 20)+ " ...";
+                }
+            }
+            return diaries;
+        }
+
         public static int Setschedules(ScheduleTBL scheduleTBL)
         {
             using (var ctx = new DogWorkerEntities())

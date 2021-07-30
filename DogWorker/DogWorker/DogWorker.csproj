@@ -214,6 +214,7 @@
     <Compile Include="Model\DiaryTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\DiaryTBL2.cs" />
     <Compile Include="Model\DogTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
