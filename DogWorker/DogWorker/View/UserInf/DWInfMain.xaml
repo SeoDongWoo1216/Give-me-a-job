@@ -25,34 +25,33 @@
         </Style>
     </Page.Resources>
 
-    <Grid Margin="10">
+    <Grid Margin="50,10">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100" />
+            <RowDefinition Height="80" />
             <RowDefinition Height="1*" />
             <RowDefinition Height="70" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
-            <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="20" />
         </Grid.ColumnDefinitions>
 
         <!-- 제목입력 시작 -->
-        <Label Grid.Row="0" Grid.Column="1" Content="도그워커 정보" FontSize="50" FontWeight="ExtraBold"
+        <Label Grid.Row="0" Grid.Column="1" Content="관리자 정보" FontSize="40" FontWeight="ExtraBold"
                VerticalContentAlignment="Center" HorizontalContentAlignment="Left" />
         <!-- 제목입력 끝 -->
 
-        
 
-        
+
+
 
         <!-- 그림영역 시작 -->
-        <Grid Grid.Row="1" Grid.Column="1" Margin="5">
-        </Grid>
+        
         <!-- 그림영역 끝 -->
         <!-- 입력/수정영역 시작 -->
-        <Grid Grid.Row="1" Grid.Column="2" Margin="60">
+        <Grid Grid.Row="1" Grid.Column="1" Margin="60">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
@@ -64,68 +63,45 @@
 
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="110"/>
+                <ColumnDefinition Width="54.846"/>
+                <ColumnDefinition Width="55.154"/>
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="0" Content="ID" FontSize="25"/>
-            <Label Grid.Row="1" Grid.Column="0" Content="비밀번호" FontSize="25"/>
-            <Label Grid.Row="2" Grid.Column="0" Content="이름" FontSize="25"/>
-            <Label Grid.Row="3" Grid.Column="0" Content="나이" FontSize="25"/>
-            <Label Grid.Row="4" Grid.Column="0" Content="전화번호" FontSize="25"/>
-            <Label Grid.Row="5" Grid.Column="0" Content="경력" FontSize="25"/>
-            <Label Grid.Row="6" Grid.Column="0" Content="소개말" FontSize="25"/>
-            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
-                <TextBox Margin="3" Width="200" Text="" FontSize="14" MaxLength="8"/>
-                <TextBlock Text="Error Message" Foreground="OrangeRed"/>
+            <Label Grid.Row="0" Grid.Column="0" Content="이름" FontSize="20" Grid.ColumnSpan="2"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="나이" FontSize="20" Grid.ColumnSpan="2"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="전화번호" FontSize="20" Grid.ColumnSpan="2"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="ID" FontSize="20" Grid.ColumnSpan="2"/>
+            <Label Grid.Row="4" Grid.Column="0" Content="Password" FontSize="20" Grid.ColumnSpan="2"/>
+            <Label Grid.Row="5" Grid.Column="0" Content="Email" FontSize="20" Grid.ColumnSpan="2"/>
+            <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
+                <TextBox x:Name="TxtName" Margin="3" Width="200" Text="" FontSize="14" MaxLength="8"/>
             </StackPanel>
-            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
-                <TextBox Margin="3" Width="200" Text="" FontSize="14" MaxLength="100"/>
-                <TextBlock Text="Error Message" Foreground="OrangeRed"/>
+            <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
+                <TextBox x:Name="TxtAge" Margin="3" Width="200" Text="" FontSize="14" MaxLength="100"/>
             </StackPanel>
-            <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
-                <TextBox  Margin="3" Width="200" Text="" FontSize="14" 
+            <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
+                <TextBox x:Name="TxtPhone" Margin="3" Width="200" Text="" FontSize="14" 
                          AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
-                <TextBlock Text="Error Message" Foreground="OrangeRed"/>
             </StackPanel>
-            <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
-                <TextBox  Margin="3" Width="200" Text="" FontSize="14" 
+            <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal">
+                <TextBox x:Name="TxtID"  Margin="3" Width="200" Text="" FontSize="14" 
                          AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
-                <TextBlock  Text="Error Message" Foreground="OrangeRed"/>
             </StackPanel>
-            <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal">
-                <TextBox  Margin="3" Width="200" Text="" FontSize="14" 
+            <StackPanel Grid.Row="4" Grid.Column="2" Orientation="Horizontal">
+                <TextBox x:Name="TxtPW"  Margin="3" Width="200" Text="" FontSize="14" 
                          AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
-                <TextBlock Text="Error Message" Foreground="OrangeRed"/>
             </StackPanel>
-            <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal">
-                <TextBox  Margin="3" Width="200" Text="" FontSize="14" 
+            <StackPanel Grid.Row="5" Grid.Column="2" Orientation="Horizontal">
+                <TextBox x:Name="TxtEmail"  Margin="3" Width="200" Text="" FontSize="14" 
                          AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
-                <TextBlock Text="Error Message" Foreground="OrangeRed"/>
             </StackPanel>
-            <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal">
-                <TextBox  Margin="3" Width="200" Text="" FontSize="14" 
-                         AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
-                <TextBlock Text="Error Message" Foreground="OrangeRed"/>
-            </StackPanel>
+            <StackPanel Grid.Row="6" Grid.Column="2" Orientation="Horizontal"/>
         </Grid>
         <!-- 입력/수정영역 끝 -->
         <!-- 버튼영역 시작 -->
         <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" 
-                    Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button x:Name="BtnUpdate" 
-                    Background="LightSteelBlue"
-                    Height="40" Width="90" Content="수정" FontSize="14" Margin="5" Click="BtnUpdate_Click">
-                <Button.ContentTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding}" Margin="5, 0" VerticalAlignment="Center" />
-                            <Image Source="/Resources/pencil.png" Width="24" Height="24" />
-                        </StackPanel>
-                    </DataTemplate>
-                </Button.ContentTemplate>
-            </Button>
-        </StackPanel>
+                    Orientation="Horizontal" HorizontalAlignment="Right"/>
         <!-- 버튼영역 끝 -->
     </Grid>
 </Page>

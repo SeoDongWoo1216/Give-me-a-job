@@ -1,4 +1,4 @@
-﻿<Page 
+﻿<Page xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
     x:Class="DogWorker.View.Apply.DWApplyMain"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -7,7 +7,7 @@
     xmlns:local="clr-namespace:DogWorker.View.Apply"
     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
     mc:Ignorable="d" 
-    d:DesignHeight="630" d:DesignWidth="1200"
+    d:DesignHeight="630" d:DesignWidth="1200" Background="White"
     Title="DWApplyMain" Loaded="Page_Loaded">
     <Page.Resources>
         <Style TargetType="Label">
@@ -25,136 +25,130 @@
         </Style>
     </Page.Resources>
 
-    <Grid Margin="10">
+    <Grid Margin="50,10">
         <Grid.RowDefinitions>
-            <RowDefinition Height="60" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="60" />
-            <RowDefinition Height="0.6*" />
-            <RowDefinition Height="70" />
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="20" />
-        </Grid.ColumnDefinitions>
-
-        <!-- 제목입력 시작 -->
-        <Label Grid.Row="0" Grid.Column="1" Content="근무 날짜 신청" FontSize="40" FontWeight="ExtraBold"
+        <!--제목-->
+        <Label Grid.Row="0" Grid.Column="1" Content="스케줄" FontSize="40" FontWeight="ExtraBold"
                VerticalContentAlignment="Center" HorizontalContentAlignment="Left" />
-        <Label Grid.Row="0" Grid.Column="2" Content="예약 대기" FontSize="40" FontWeight="ExtraBold"
-               VerticalContentAlignment="Center" HorizontalContentAlignment="Left" />
-        <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Content="근무 시간 선택" 
-                   HorizontalContentAlignment="Left" FontSize="40"></Label>
-        <Label Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Content="예약 완료" 
-                   HorizontalContentAlignment="Left" FontSize="40"></Label>
-            <!-- 제목입력 끝 -->
-
-        <!-- 근무날짜 신청 그리드 시작 -->
-        <Grid Grid.Row="1" Grid.Column="1" Margin="5">
-
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <!--달력부분 시작-->
-            <Grid>
+            <!--왼쪽부분 시작-->
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="38*"/>
+                    <ColumnDefinition Width="237*"/>
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition />
                 </Grid.RowDefinitions>
-                <TextBox x:Name="TxtDate" Grid.Row="1" Width="160" HorizontalAlignment="Center" IsReadOnly="True" ></TextBox>
-                <Calendar x:Name="CalDate" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Width="170" PreviewMouseUp="CalDate_PreviewMouseUp"/>
+                <Label Grid.Row="0" Content="예약리스트" HorizontalContentAlignment="Left" FontSize="20" Grid.ColumnSpan="2"/>
+                <!-- AutoGenerateColumns="False" 중요!!! 자동으로 데이터가 들어가는 것을 방지-->
+                <DataGrid x:Name="GrdData" Grid.Row="1"
+                          AutoGenerateColumns="False" 
+                          SelectionUnit="FullRow"
+                          GridLinesVisibility="Vertical"
+                          Style="{StaticResource MahApps.Styles.DataGrid.Azure}"
+                          ItemsSource="{Binding}" SelectedCellsChanged="GrdData_SelectedCellsChanged_1" Grid.ColumnSpan="2">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Schidx}" Header="순번" Width="60"/>
+                        <DataGridTextColumn Binding="{Binding Schdate}" Header="날짜" Width="1*"/>
+                        <DataGridTextColumn Binding="{Binding Schtime}" Header="시간" Width="1*"/>
+                        <DataGridTextColumn Binding="{Binding Schplace}" Header="장소" Width="1*"/>
+                    </DataGrid.Columns>
+
+                </DataGrid>
             </Grid>
-            <!--달력부분 끝-->
-            <!--시간선택 영역 시작-->
+            <!--왼쪽부분 끝-->
+            <!--오른쪽부분-->
+            <!-- 입력/수정영역 시작 -->
+            <Grid Margin="540,15,40,15" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="110"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="1" Grid.Column="0" Content="이름" />
+                <Label Grid.Row="2" Grid.Column="0" Content="나이" />
+                <Label Grid.Row="3" Grid.Column="0" Content="날짜" />
+                <Label Grid.Row="4" Grid.Column="0" Content="시간" />
+                <Label Grid.Row="5" Grid.Column="0" Content="장소" />
+                <Label Grid.Row="6" Grid.Column="0" Content="예약확인" />
+                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                    <TextBox x:Name="TxtSchName" Margin="3" Width="200" Text="" FontSize="14" IsReadOnly="True" 
+                         mah:TextBoxHelper.Watermark=""
+                         Background="White" MaxLength="8"/>
+                </StackPanel>
+                <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+                    <TextBox x:Name="TxtSchAge" Margin="3" Width="200" Text="" FontSize="14" IsReadOnly="True" 
+                         mah:TextBoxHelper.Watermark=""
+                         Background="White" MaxLength="8"/>
+                </StackPanel>
+                <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+                    <DatePicker x:Name="DtpSchDate" Margin="3" Width="200"
+                            mah:TextBoxHelper.Watermark="날짜 선택"></DatePicker>
+                </StackPanel>
+                <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal">
+                    <mah:TimePicker x:Name="TmpSchTime" Width="200" Margin="3"
+                                mah:TextBoxHelper.Watermark="시간선택"/>
+                </StackPanel>
+                <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal">
+                    <TextBox x:Name="TxtSchPlace" Margin="3" Width="200" Text="" FontSize="14" IsReadOnly="True" 
+                         mah:TextBoxHelper.Watermark=""
+                         Background="White" MaxLength="8"/>
+                </StackPanel>
+                <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal">
+                    <ComboBox x:Name="CmbSchYN" Margin="3" Width="200" Text="" FontSize="14" IsReadOnly="True" 
+                         mah:TextBoxHelper.Watermark=""
+                         Background="White"/>
+                </StackPanel>
 
 
 
+            </Grid>
+            <!-- 입력/수정영역 끝 -->
 
 
-            <!--시간선택 영역 끝-->
         </Grid>
-        <!-- 근무날짜 신청 그리드 끝 -->
-        <!-- 예약대기 그리드 시작 -->
-        <Grid Grid.Row="1" Grid.Column="2">
-            <DataGrid Margin="10">
-                
-            </DataGrid>
 
-        </Grid>
-        <!-- 예약대기 그리드 끝 -->
-        <!-- 근무 시간 선택영역 시작 -->
-        <Grid Grid.Row="3" Grid.Column="1"  Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <RadioButton x:Name="RBtnTime1" Grid.Row="0" Content="10:00 ~ 12:00" FontSize="20" Margin="5"></RadioButton>
-            <RadioButton x:Name="RBtnTime2" Grid.Row="1" Content="13:30 ~ 16:30" FontSize="20" Margin="5"></RadioButton>
-            <RadioButton x:Name="RBtnTime3" Grid.Row="2" Content="17:00 ~ 19:00" FontSize="20" Margin="5"></RadioButton>
-
-        </Grid>
-        <!-- 근무 시간 선택영역 끝 -->
-        <!-- 예약 완료 그리드 시작 -->
-        <Grid Grid.Row="3" Grid.Column="2">
-            <DataGrid Margin="10">
-
-            </DataGrid>
-
-        </Grid>
-        <!-- 예약 완료 그리드 끝 -->
-
-        <!-- 버튼영역 시작 -->
-        <StackPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" 
-                    Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button x:Name="BtnInsert" 
-                    Height="40" Width="90" Content="입력" FontSize="14" 
+        <Grid Grid.Row="2">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Button x:Name="BtnReserve" 
+                    Height="40" Width="90" Content="예약추가" FontSize="14" 
                     Background="CornflowerBlue"
-                    Margin="5" RenderTransformOrigin="0.5,0.5" Click="BtnInsert_Click" >
-                <Button.ContentTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding}" Margin="5, 0" VerticalAlignment="Center" />
-                            <Image Source="/Resources/sign_check.png" Width="24" Height="24" />
-                        </StackPanel>
-                    </DataTemplate>
-                </Button.ContentTemplate>
-            </Button>
+                    Margin="5, 0" Click="BtnReserve_Click">
+                    <Button.ContentTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding}" Margin="5, 0" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </Button.ContentTemplate>
+                </Button>
 
-            <!--<Button x:Name="BtnNew" 
-                    Height="40" Width="90" Content="신규" FontSize="14" 
-                    Background="CornflowerBlue"
-                    Margin="5, 0" Click="BtnNew_Click" >
-                <Button.ContentTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding}" Margin="5, 0" VerticalAlignment="Center" />
-                            <Image Source="/Resources/sign_add.png" Width="24" Height="24" />
-                        </StackPanel>
-                    </DataTemplate>
-                </Button.ContentTemplate>
-            </Button>-->
-            <!--<Button x:Name="BtnUpdate" 
-                    Background="LightSteelBlue"
-                    Height="40" Width="90" Content="수정" FontSize="14" Margin="5" Click="BtnUpdate_Click">
-                <Button.ContentTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding}" Margin="5, 0" VerticalAlignment="Center" />
-                            <Image Source="/Resources/pencil.png" Width="24" Height="24" />
-                        </StackPanel>
-                    </DataTemplate>
-                </Button.ContentTemplate>
-            </Button>-->
-        </StackPanel>
-        <!-- 버튼영역 끝 -->
+            </StackPanel>
+        </Grid>
+
+
+
     </Grid>
-    
+
 </Page>
