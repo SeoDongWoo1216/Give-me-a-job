@@ -1,4 +1,5 @@
 from typing import OrderedDict      #데이터 순서대로 받기
+import time
 import serial
 import string 
 import pynmea2          #프로토콜을 위한 파이썬 라이브러리
@@ -9,8 +10,40 @@ import json
 
 # MQTT 브로커 설정 
 dev_id = 'GPS01'
-dev_uid = uuid.uuid3(uuid.NAMESPACE_OID, dev_id)
-broker_address = '192.168.200.105'
+dev_uid = str(uuid.uuid3(uuid.NAMESPACE_OID, dev_id))
+broker_address = '210.119.12.97'    #브로커 주소
+pub_topic = 'gps01/machine1/data/'  #MQTT topic
+
+#send-data 구성 : Mosquito를 활영하여 MQTT방식으로 json형태의 데이터 전달
+#Mosquito : MQTT 브로커중에 대표적인 프로그램 
+#-> 클라이언트에서 메시지를 받아서 전달해주는 역할 
+
+def send_data(result,lat,lon):
+    if result == 'LON':
+        send_msg = 'OK'
+    elif result == 'CONN':
+        send_msg = 'CONN'
+    else:
+        send_msg = 'ERROR'
+
+    #우리가 원하는 날짜 출력
+    currtime = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
+
+    #json data generate
+    raw_data = OrderedDict()    #데이터 순서대로 받기
+    raw_data['dev_id'] = dev_id
+    #raw_data['dev_uid'] = dev_uid
+    raw_data['prc_time'] = currtime
+    raw_data['prc_msg'] = send_msg
+    raw_data['gps_lon'] = lon
+    raw_data['gps_lat'] = lat
+
+    #publish data 변환 
+    pub_data = json.dumps(raw_data, ensure_ascii=False, indent='\t')
+
+    #mqtt_publish
+    print(pub_data)
+    client2.publish(pub_topic, pub_data)
 
 # GPS 데이터 받아오기 
 def loop():
@@ -25,37 +58,36 @@ def loop():
         #NMEA(위치전송 규격)문장의 스트림을 데이터 처리 가능 
         #GPGGA - 위동,경도 알려줌 
         newdata = ser.readline()
-        newdata_u = newdata.decode('utf-8')
+        newdata_u = ''
+        try:
+            newdata_u = newdata.decode('utf-8') 
+        except Exception as e:
+            pass
 
+        if newdata_u == '': continue
         if newdata_u[0:6] == "$GPRMC":
             new_gps = pynmea2.parse(newdata_u)  #newdata_u를 파씽
-            if new_gps.latitude :
-                result = "lat"
-            elif new_gps.longitude:
-                result = "lon"
-
+            result = "LON"
+            #if new_gps.latitude :
+               #lat = "lat"
+            #if new_gps.longitude:
+               #lon = "lon"
+            lat = new_gps.latitude
+            lon = new_gps.longitude
+            #gps = "Lat : " + str(lat) + "Lon : " + str(lon)
+            send_data(result,lat,lon)
             
+        time.sleep(3)
+        
 
-#데이터를 MQTT로 보내는 메서드
-def send_data(result):
-    send_msg = ''
-    if result == 'lat':
-        send_msg = 'latitude'
-    elif result == 'lon':
-        send_msg = 'longitude'
-    else:
-        send_msg = 'ERR'
-
-    currtime = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
-
-# groupdata generate
-raw_data = OrderedDict()
-raw_data['']
+#MQTT 초기화
+client2 = mqtt.Client(dev_id)
+client2.connect(broker_address, 1883)   #브로커가 서버에 접속할 수 있게 해줌
+print('MQTT Client connected')  #접속 확인 문 
 
 # main 
 if __name__=='__main__':
-    setup()
-    send_data('CONN')
+    send_data('CONN',None,None)
     try:
         loop()
     except KeyboardInterrupt:

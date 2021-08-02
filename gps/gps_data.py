@@ -19,3 +19,5 @@ while True:
         lon = new_gps.longitude  
         gps = "Latitude = " + str(lat) + " Longitude = " + str(lon)
         print(gps)
+        
+    time.sleep(3)
