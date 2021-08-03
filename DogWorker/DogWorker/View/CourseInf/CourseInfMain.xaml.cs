@@ -25,108 +25,24 @@ namespace DogWorker.View.CourseInf
         {
             InitializeComponent();
         }
-
+        
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            //try
-            //{
-                // Store 테이블 데이터 읽어와야 함
-                //List<Model.Store> stores = new List<Model.Store>();
-                //List<Model.StockStore> stockStores = new List<Model.StockStore>();
-                //stores = Logic.DataAccess.GetStores(); // 수영1 ...
-
-                //// TODO : stores 데이터를 stockStores로 복사
-                //foreach (Model.Store item in stores)
-                //{
-                //    var store = new Model.StockStore()
-                //    {
-                //        StoreID = item.StoreID,
-                //        StoreName = item.StoreName,
-                //        StoreLocation = item.StoreLocation,
-                //        ItemStatus = item.ItemStatus,
-                //        TagID = item.TagID,
-                //        BarcodeID = item.BarcodeID,
-                //        StockQuantity = 0
-                //    };
-                //    // 
-                //    store.StockQuantity = Logic.DataAccess.GetStocks().Where(t => t.StoreID.Equals(store.StoreID)).Count();
-
-                //    stockStores.Add(store);
-                //}
-
-                //this.DataContext = stockStores;
-           // }
-            //catch (Exception ex)
-            //{
-            //    Commons.LOGGER.Error($"예외발생 StoreList Loaded : {ex}");
-            //    throw ex;
-            //}
+            List<Model.USERTBL> user = Logic.DataAccess.Getusers();
+            this.DataContext = user;
+            wb.Address = "http://127.0.0.1:8080"; //여기서 리프레쉬를 해주면 될듯            
         }
 
-       
 
-        private void BtnMap_Click(object sender, RoutedEventArgs e)
+        private void BtnNew_Click(object sender, RoutedEventArgs e)
         {
-            //List<MyLocale> mls = KakaoAPI.Search(TxtMap.Text);
-           // ListName.ItemsSource = mls;
+            wb.Address = "http://127.0.0.1:8080"; //여기서 리프레쉬를 해주면 될듯            
+
         }
 
-        private void ListName_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void DataGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
-            if(ListName.SelectedIndex==-1)
-            {
-                return;
-            }
-            MyLocale ml = ListName.SelectedItem as MyLocale;
-            object[] ps = new object[] { ml.Lat, ml.Lng }; // 위도 경도 값을 받아오는 코드
-            wb.InvokeScript("setCenter",ps);
+           
         }
-
-        //private void BtnEditUser_Click(object sender, RoutedEventArgs e)
-        //{
-        //    //try
-        //    //{
-        //    //    //NavigationService.Navigate(new EditUser());
-        //    //}
-        //    //catch (Exception ex)
-        //    //{
-        //    //    Commons.LOGGER.Error($"예외발생 BtnEditUser_Click : {ex}");
-        //    //    throw ex;
-        //    //}
-        //}
-
-        //private void BtnAddStore_Click(object sender, RoutedEventArgs e)
-        //{
-        //    //try
-        //    //{
-        //    //    NavigationService.Navigate(new AddStore());
-        //    //}
-        //    //catch (Exception ex)
-        //    //{
-        //    //    Commons.LOGGER.Error($"예외발생 BtnAddStore_Click : {ex}");
-        //    //    throw ex;
-        //    //}
-        //}
-
-        //private void BtnEditStore_Click(object sender, RoutedEventArgs e)
-        //{
-        //    //if (GrdData.SelectedItem == null)
-        //    //{
-        //    //    Commons.ShowMessageAsync("창고수정", "수정할 창고를 선택하세요");
-        //    //    return;
-        //    //}
-
-        //    //try
-        //    //{
-        //    //    //var storeId = (GrdData.SelectedItem as Model.Store).StoreID;
-        //    //    //NavigationService.Navigate(new EditStore(storeId));
-        //    //}
-        //    //catch (Exception ex)
-        //    //{
-        //    //    Commons.LOGGER.Error($"예외발생 BtnEditStore_Click : {ex}");
-        //    //    throw ex;
-        //    //}
-        //}
-
     }
 }

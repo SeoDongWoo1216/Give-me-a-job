@@ -33,7 +33,7 @@ namespace DogWorker.Logic
             return schedules;
         }
 
-        internal static List<DiaryTBL> GetDiary()
+        public static List<DiaryTBL> GetDiary()
         {
             List<DiaryTBL> diaries;
             using (var ctx = new DogWorkerEntities())
@@ -45,6 +45,15 @@ namespace DogWorker.Logic
                 }
             }
             return diaries;
+        }
+        public static List<GPSTBL> GetGPS()
+        {
+            List<GPSTBL> gps;
+            using (var ctx = new DogWorkerEntities())
+            {
+                gps = ctx.GPSTBL.ToList();
+            }
+            return gps;
         }
 
         public static int Setschedules(ScheduleTBL scheduleTBL)

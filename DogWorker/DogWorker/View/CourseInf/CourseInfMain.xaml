@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     xmlns:local="clr-namespace:DogWorker.View.CourseInf"
     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:csbrow="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
     mc:Ignorable="d" 
     d:DesignHeight="630" d:DesignWidth="1200"
     Title="CourseInfMain" Loaded="Page_Loaded">
@@ -34,9 +35,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
             <ColumnDefinition Width="0.6*" />
-            <ColumnDefinition Width="100" />
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="300" />
             <ColumnDefinition Width="20" />
         </Grid.ColumnDefinitions>
 
@@ -44,68 +43,34 @@
         <Label Grid.Row="0" Grid.Column="1" Content="실시간 산책" FontSize="50" FontWeight="ExtraBold"
                VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Grid.ColumnSpan="2" />
         <!-- 제목입력 끝 -->
-
-        <!-- 버튼영역 시작 -->
-        <!--<StackPanel Grid.Row="2" Grid.Column="2" HorizontalAlignment="Right" Orientation="Horizontal" Grid.ColumnSpan="2">
-            <Button x:Name="BtncourseStart" 
-                    FontSize="14"
-                    Background="DarkSlateBlue" Foreground="White"
-                    Content="산책 시작" Height="50" Width="140" Click="BtncourseStart_Click">
-                <Button.ContentTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding}" Margin="10, 0" VerticalAlignment="Center" />
-                            <iconPacks:PackIconMaterialDesign Kind="AddCircle" Width="24" Height="24" />
-                        </StackPanel>
-                    </DataTemplate>
-                </Button.ContentTemplate>
-            </Button>
-            <Button x:Name="BtncourseFinish" 
-                    FontSize="14"
-                    Background="DarkSlateBlue" Foreground="White"
-                    Content="산책종료" Height="50" Width="140" Margin="5" Click="BtncourseFinish_Click" >
-                <Button.ContentTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding}" Margin="0" VerticalAlignment="Center" />
-                            <iconPacks:PackIconModern Kind="Delete" Width="24" Height="24" />
-                        </StackPanel>
-                    </DataTemplate>
-                </Button.ContentTemplate>
-            </Button>
-        </StackPanel>-->
-        <!-- 버튼영역 끝 -->
+        
         <!--데이터 그리드 영역 시작-->
-        <DataGrid Grid.Row="1" Grid.Column="1" Margin="10">
-
+        <DataGrid Grid.Row="1" Grid.Column="1" Margin="10"
+                  AutoGenerateColumns="False"
+                  SelectionUnit="FullRow"
+                  GridLinesVisibility="Vertical"
+                  ItemsSource="{Binding}"
+                  SelectedCellsChanged="DataGrid_SelectedCellsChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Name}" Header="이름" Width="60"/>
+                <DataGridTextColumn Binding="{Binding Age}" Header="나이" Width="60"/>
+                <DataGridTextColumn Binding="{Binding ID}" Header="아이디" Width="100"/>
+                <DataGridTextColumn Binding="{Binding Phone}" Header="핸드폰" Width="100"/>
+            </DataGrid.Columns>
         </DataGrid>
         <!--데이터 그리드 영역 끝-->
-        
-        <!--그림영역 시작-->
 
-        <WebBrowser x:Name="wb" Grid.Row="1" Grid.Column="3" Source="http://127.0.0.1:8080/" >
-        
-        </WebBrowser>
-        
+        <!--그림영역 시작-->
+        <!--<WebBrowser x:Name="wb" Grid.Row="1" Grid.Column="2" Source="http://127.0.0.1:8080/" >
+        </WebBrowser>-->
+        <csbrow:ChromiumWebBrowser x:Name="wb" Grid.Row="1" Grid.Column="2" >
+        </csbrow:ChromiumWebBrowser>
+
         <!--그림영역 끝-->
         <!--특이사항 영역 시작-->
-        <Grid Grid.Row="1" Grid.Column="4" Margin="10">
-            <Grid.RowDefinitions>
-
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-
-
-            </Grid.ColumnDefinitions>
-
-            <TextBox x:Name="DogBreed" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="10"  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
-            <!--<ComboBox Grid.Row="1" Margin="10" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="200"></ComboBox>
-            <Button Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Width="70" Margin="10" Background="DarkSlateBlue" Content="등록" FontSize="12" Foreground="White"></Button>-->
-
-        </Grid>
         <!--특이사항 영역 끝-->
-        <ListBox x:Name="ListName"  Grid.Row="1" Grid.Column="2"  SelectionChanged="ListName_SelectionChanged" ></ListBox>
-        <TextBox x:Name="TxtMap" Grid.Row="3" Grid.Column="3" Height="50" Width="300" HorizontalAlignment="Right" ></TextBox>
-        <Button x:Name="BtnMap" Grid.Row="3" Grid.Column="4" Width="100" Height="50" Margin="5"  HorizontalAlignment="Left" Background="CornflowerBlue" Click="BtnMap_Click"></Button>
+        <Button x:Name="BtnNew" Grid.Row="3" Grid.Column="2" Width="100" Height="50"
+                Margin="5" Content="새로고침" FontSize="15"
+                HorizontalAlignment="Right" Background="CornflowerBlue" Click="BtnNew_Click"></Button>
     </Grid>
 </Page>
