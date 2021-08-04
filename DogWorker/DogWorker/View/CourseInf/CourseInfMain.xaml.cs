@@ -31,6 +31,7 @@ namespace DogWorker.View.CourseInf
             List<Model.USERTBL> user = Logic.DataAccess.Getusers();
             this.DataContext = user;
             wb.Address = "http://127.0.0.1:8080"; //여기서 리프레쉬를 해주면 될듯            
+            //다시 커밋용
         }
 
 
