@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DogWorkerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DiaryTBL">
+          <Key>
+            <PropertyRef Name="Dyidx" />
+          </Key>
+          <Property Name="Dyidx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Schidx" Type="int" Nullable="false" />
+          <Property Name="Contents" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="DogTBL">
+          <Key>
+            <PropertyRef Name="Didx" />
+          </Key>
+          <Property Name="Didx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Uidx" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="Memo" Type="nvarchar(max)" />
+          <Property Name="Breed" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GPSTBL">
+          <Key>
+            <PropertyRef Name="Gidx" />
+          </Key>
+          <Property Name="Gidx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Lat" Type="float" Nullable="false" />
+          <Property Name="Lon" Type="float" Nullable="false" />
+          <Property Name="CrtTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScheduleTBL">
+          <Key>
+            <PropertyRef Name="Schidx" />
+          </Key>
+          <Property Name="Schidx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Uidx" Type="int" Nullable="false" />
+          <Property Name="Schdate" Type="date" Nullable="false" />
+          <Property Name="Schtime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Schplace" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rsyn" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Rstime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USERTBL">
+          <Key>
+            <PropertyRef Name="Uidx" />
+          </Key>
+          <Property Name="Uidx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="13" />
+          <Property Name="ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="PW" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_DiaryTBL_ScheduleTBL">
+          <End Role="ScheduleTBL" Type="Self.ScheduleTBL" Multiplicity="1" />
+          <End Role="DiaryTBL" Type="Self.DiaryTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScheduleTBL">
+              <PropertyRef Name="Schidx" />
+            </Principal>
+            <Dependent Role="DiaryTBL">
+              <PropertyRef Name="Schidx" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DogTBL_USERTBL">
+          <End Role="USERTBL" Type="Self.USERTBL" Multiplicity="1" />
+          <End Role="DogTBL" Type="Self.DogTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERTBL">
+              <PropertyRef Name="Uidx" />
+            </Principal>
+            <Dependent Role="DogTBL">
+              <PropertyRef Name="Uidx" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScheduleTBL_USERTBL">
+          <End Role="USERTBL" Type="Self.USERTBL" Multiplicity="1" />
+          <End Role="ScheduleTBL" Type="Self.ScheduleTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERTBL">
+              <PropertyRef Name="Uidx" />
+            </Principal>
+            <Dependent Role="ScheduleTBL">
+              <PropertyRef Name="Uidx" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DogWorkerModelStoreContainer">
+          <EntitySet Name="DiaryTBL" EntityType="Self.DiaryTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DogTBL" EntityType="Self.DogTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GPSTBL" EntityType="Self.GPSTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScheduleTBL" EntityType="Self.ScheduleTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USERTBL" EntityType="Self.USERTBL" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DiaryTBL_ScheduleTBL" Association="Self.FK_DiaryTBL_ScheduleTBL">
+            <End Role="ScheduleTBL" EntitySet="ScheduleTBL" />
+            <End Role="DiaryTBL" EntitySet="DiaryTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DogTBL_USERTBL" Association="Self.FK_DogTBL_USERTBL">
+            <End Role="USERTBL" EntitySet="USERTBL" />
+            <End Role="DogTBL" EntitySet="DogTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScheduleTBL_USERTBL" Association="Self.FK_ScheduleTBL_USERTBL">
+            <End Role="USERTBL" EntitySet="USERTBL" />
+            <End Role="ScheduleTBL" EntitySet="ScheduleTBL" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DogWorkerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DogWorkerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DiaryTBL" EntityType="DogWorkerModel.DiaryTBL" />
+          <EntitySet Name="DogTBL" EntityType="DogWorkerModel.DogTBL" />
+          <EntitySet Name="GPSTBL" EntityType="DogWorkerModel.GPSTBL" />
+          <EntitySet Name="ScheduleTBL" EntityType="DogWorkerModel.ScheduleTBL" />
+          <EntitySet Name="USERTBL" EntityType="DogWorkerModel.USERTBL" />
+          <AssociationSet Name="FK_DiaryTBL_ScheduleTBL" Association="DogWorkerModel.FK_DiaryTBL_ScheduleTBL">
+            <End Role="ScheduleTBL" EntitySet="ScheduleTBL" />
+            <End Role="DiaryTBL" EntitySet="DiaryTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DogTBL_USERTBL" Association="DogWorkerModel.FK_DogTBL_USERTBL">
+            <End Role="USERTBL" EntitySet="USERTBL" />
+            <End Role="DogTBL" EntitySet="DogTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScheduleTBL_USERTBL" Association="DogWorkerModel.FK_ScheduleTBL_USERTBL">
+            <End Role="USERTBL" EntitySet="USERTBL" />
+            <End Role="ScheduleTBL" EntitySet="ScheduleTBL" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="DiaryTBL">
+          <Key>
+            <PropertyRef Name="Dyidx" />
+          </Key>
+          <Property Name="Dyidx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Schidx" Type="Int32" Nullable="false" />
+          <Property Name="Contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ScheduleTBL" Relationship="DogWorkerModel.FK_DiaryTBL_ScheduleTBL" FromRole="DiaryTBL" ToRole="ScheduleTBL" />
+        </EntityType>
+        <EntityType Name="DogTBL">
+          <Key>
+            <PropertyRef Name="Didx" />
+          </Key>
+          <Property Name="Didx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Uidx" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="Memo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Breed" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="USERTBL" Relationship="DogWorkerModel.FK_DogTBL_USERTBL" FromRole="DogTBL" ToRole="USERTBL" />
+        </EntityType>
+        <EntityType Name="GPSTBL">
+          <Key>
+            <PropertyRef Name="Gidx" />
+          </Key>
+          <Property Name="Gidx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Lat" Type="Double" Nullable="false" />
+          <Property Name="Lon" Type="Double" Nullable="false" />
+          <Property Name="CrtTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="ScheduleTBL">
+          <Key>
+            <PropertyRef Name="Schidx" />
+          </Key>
+          <Property Name="Schidx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Uidx" Type="Int32" Nullable="false" />
+          <Property Name="Schdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Schtime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Schplace" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Rsyn" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Rstime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="DiaryTBL" Relationship="DogWorkerModel.FK_DiaryTBL_ScheduleTBL" FromRole="ScheduleTBL" ToRole="DiaryTBL" />
+          <NavigationProperty Name="USERTBL" Relationship="DogWorkerModel.FK_ScheduleTBL_USERTBL" FromRole="ScheduleTBL" ToRole="USERTBL" />
+        </EntityType>
+        <EntityType Name="USERTBL">
+          <Key>
+            <PropertyRef Name="Uidx" />
+          </Key>
+          <Property Name="Uidx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PW" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DogTBL" Relationship="DogWorkerModel.FK_DogTBL_USERTBL" FromRole="USERTBL" ToRole="DogTBL" />
+          <NavigationProperty Name="ScheduleTBL" Relationship="DogWorkerModel.FK_ScheduleTBL_USERTBL" FromRole="USERTBL" ToRole="ScheduleTBL" />
+        </EntityType>
+        <Association Name="FK_DiaryTBL_ScheduleTBL">
+          <End Type="DogWorkerModel.ScheduleTBL" Role="ScheduleTBL" Multiplicity="1" />
+          <End Type="DogWorkerModel.DiaryTBL" Role="DiaryTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScheduleTBL">
+              <PropertyRef Name="Schidx" />
+            </Principal>
+            <Dependent Role="DiaryTBL">
+              <PropertyRef Name="Schidx" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DogTBL_USERTBL">
+          <End Type="DogWorkerModel.USERTBL" Role="USERTBL" Multiplicity="1" />
+          <End Type="DogWorkerModel.DogTBL" Role="DogTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERTBL">
+              <PropertyRef Name="Uidx" />
+            </Principal>
+            <Dependent Role="DogTBL">
+              <PropertyRef Name="Uidx" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScheduleTBL_USERTBL">
+          <End Type="DogWorkerModel.USERTBL" Role="USERTBL" Multiplicity="1" />
+          <End Type="DogWorkerModel.ScheduleTBL" Role="ScheduleTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERTBL">
+              <PropertyRef Name="Uidx" />
+            </Principal>
+            <Dependent Role="ScheduleTBL">
+              <PropertyRef Name="Uidx" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DogWorkerModelStoreContainer" CdmEntityContainer="DogWorkerEntities">
+          <EntitySetMapping Name="DiaryTBL">
+            <EntityTypeMapping TypeName="DogWorkerModel.DiaryTBL">
+              <MappingFragment StoreEntitySet="DiaryTBL">
+                <ScalarProperty Name="Contents" ColumnName="Contents" />
+                <ScalarProperty Name="Schidx" ColumnName="Schidx" />
+                <ScalarProperty Name="Dyidx" ColumnName="Dyidx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DogTBL">
+            <EntityTypeMapping TypeName="DogWorkerModel.DogTBL">
+              <MappingFragment StoreEntitySet="DogTBL">
+                <ScalarProperty Name="Breed" ColumnName="Breed" />
+                <ScalarProperty Name="Memo" ColumnName="Memo" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Uidx" ColumnName="Uidx" />
+                <ScalarProperty Name="Didx" ColumnName="Didx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GPSTBL">
+            <EntityTypeMapping TypeName="DogWorkerModel.GPSTBL">
+              <MappingFragment StoreEntitySet="GPSTBL">
+                <ScalarProperty Name="CrtTime" ColumnName="CrtTime" />
+                <ScalarProperty Name="Lon" ColumnName="Lon" />
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
+                <ScalarProperty Name="Gidx" ColumnName="Gidx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScheduleTBL">
+            <EntityTypeMapping TypeName="DogWorkerModel.ScheduleTBL">
+              <MappingFragment StoreEntitySet="ScheduleTBL">
+                <ScalarProperty Name="Rstime" ColumnName="Rstime" />
+                <ScalarProperty Name="Rsyn" ColumnName="Rsyn" />
+                <ScalarProperty Name="Schplace" ColumnName="Schplace" />
+                <ScalarProperty Name="Schtime" ColumnName="Schtime" />
+                <ScalarProperty Name="Schdate" ColumnName="Schdate" />
+                <ScalarProperty Name="Uidx" ColumnName="Uidx" />
+                <ScalarProperty Name="Schidx" ColumnName="Schidx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERTBL">
+            <EntityTypeMapping TypeName="DogWorkerModel.USERTBL">
+              <MappingFragment StoreEntitySet="USERTBL">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PW" ColumnName="PW" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Uidx" ColumnName="Uidx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="없음" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
