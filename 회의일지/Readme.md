@@ -16,7 +16,7 @@
 
 #### 🚩21-06-24
 - 라즈베리파이를 이용한 GPS(NEO-6M) 모듈 데이터 값 받아오기 완료(경도, 위도 가져옴)
-- 오븐앱을 통한 UI 샘플 제작 : [샘플](https://ovenapp.io/view/k2pj3Aw4Yk3ALgxk6fzoN3IziTbctloR#LKVqJ)
+- 오븐앱을 통한 UI 프로토타입 제작 : [프로토타입](https://ovenapp.io/view/k2pj3Aw4Yk3ALgxk6fzoN3IziTbctloR#LKVqJ)
 - UI는 WPF 결정 : 확장성이나 사용할 특정 다수를 위해서는 웹이 좋지만, 우리가 스타트업이나 창업하는게 아니기때문에 WPF로 결정
 - 실시간 좌표값을 UI에 보여줄 수 있는지에 대해(카카오맵 API 사용 권장하심) => 강사님께 여쭤보니 된다고 하심(자료조사 필요할듯)
 - DB 구성 : 각각의 화면에 따른 테이블 생성 논의 필요
